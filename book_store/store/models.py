@@ -4,6 +4,9 @@ from django.urls import reverse
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.utils import timezone
+from django.utils.safestring import mark_safe
+
+from .utils import upload_function
 
 
 class BookType(models.Model):
@@ -38,7 +41,8 @@ class Author(models.Model):
     age = models.IntegerField("Возраст", default=0)
     description = models.TextField("Описание")
     # url = models.SlugField(max_length=200, unique=True)
-    image = models.ImageField("", upload_to="author/")
+    # image = models.ImageField("", upload_to="author/")
+    image = models.ImageField(upload_function, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -66,6 +70,7 @@ class Publisher(models.Model):
     """Издательство"""
     name = models.CharField("Название", max_length=150)
     description = models.TextField("Описание")
+
     # url = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -80,7 +85,8 @@ class Book(models.Model):
     """Книга"""
     title = models.CharField("Название", max_length=100)
     description = models.TextField("Описание")
-    cover = models.ImageField("Обложка", upload_to="books/")
+    # cover = models.ImageField("Обложка", upload_to="books/")
+    cover = models.ImageField(upload_function)
     year = models.PositiveIntegerField("Год выпуска", default=2019)
     language = models.CharField("Язык издания", max_length=30)
     author = models.ManyToManyField(Author,
@@ -180,7 +186,6 @@ class Cart(models.Model):
                               on_delete=models.CASCADE)
     products = models.ManyToManyField(CartProduct,
                                       blank=True,
-                                      null=True,
                                       related_name='related_cart',
                                       verbose_name='Продукты для корзины')
     total_products = models.IntegerField(default=0,
@@ -293,3 +298,22 @@ class Notification(models.Model):
     class Meta:
         verbose_name = "Уведомление"
         verbose_name_plural = "Уведомление"
+
+
+class ImageGalery(models.Model):
+    """Галеря изображений"""
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    image = models.ImageField(upload_to=upload_function)
+    use_in_slider = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return f"Изображение для {self.content_object}"
+
+    def image_url(self):
+        return mark_safe(f'<img src="{self.image}" width="auto" height="20px"')
+
+    class Meta:
+        verbose_name = "Галерея изображений"
+        verbose_name_plural = "Галерея изображений"
