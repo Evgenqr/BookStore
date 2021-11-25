@@ -28,7 +28,7 @@
                 <li><a href="#">Выйти</a></li>
             {% endif %}
     	</ul>
-    </div> 
+    </div> <!-- end of menu -->
     
     <div id="templatemo_header">
     	<div id="templatemo_special_offers">
@@ -48,10 +48,10 @@
             </ul>
             <a href="subpage.html" style="margin-left: 50px;">Read more...</a>
         </div>
-    </div> 
+    </div> <!-- end of header -->
     
     <div id="templatemo_content">
-  	
+    	
         <div id="templatemo_content_left">
         	<div class="templatemo_content_left_section">
             	<h1>Categories</h1>
@@ -88,79 +88,5 @@
 <a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px"  src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" vspace="8" border="0" /></a>
 			</div>
         </div> 
-
-        {% block content %}
-        {{ request.user }}
-        <div id="templatemo_content_right">
-        	<div class="templatemo_product_box">
-            	<h1>Photography  <span>(by Best Author)</span></h1>
-   	      <img src="{% static 'images/templatemo_image_01.jpg' %}" alt="image" />
-                <div class="product_info">
-                	<p>Etiam luctus. Quisque facilisis suscipit elit. Curabitur...</p>
-                  <h3>$55</h3>
-                    <div class="buy_now_button"><a href="subpage.html">Buy Now</a></div>
-                    <div class="detail_button"><a href="subpage.html">Detail</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
-            
-            <div class="cleaner_with_width">&nbsp;</div>
-            
-            <div class="templatemo_product_box">
-            	<h1>Cooking  <span>(by New Author)</span></h1>
-       	    <img src="{% static 'images/templatemo_image_02.jpg' %}" alt="image" />
-                <div class="product_info">
-                	<p>Aliquam a dui, ac magna quis est eleifend dictum.</p>
-                    <h3>$35</h3>
-                    <div class="buy_now_button"><a href="subpage.html">Buy Now</a></div>
-                    <div class="detail_button"><a href="subpage.html">Detail</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
-            
-            <div class="cleaner_with_height">&nbsp;</div>
-            
-            <div class="templatemo_product_box">
-            	<h1>Gardening <span>(by Famous Author)</span></h1>
-   	      <img src="{% static 'images/templatemo_image_03.jpg' %}" alt="image" />
-                <div class="product_info">
-                	<p>Ut fringilla enim sed turpis. Sed justo dolor, convallis at.</p>
-                    <h3>$65</h3>
-                    <div class="buy_now_button"><a href="subpage.html">Buy Now</a></div>
-                    <div class="detail_button"><a href="subpage.html">Detail</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
-            
-            <div class="cleaner_with_width">&nbsp;</div>
-            
-            <div class="templatemo_product_box">
-            	<h1>Sushi Book  <span>(by Japanese Name)</span></h1>
-            	<img src="{% static 'images/templatemo_image_04.jpg' %}" alt="image" />
-                <div class="product_info">
-                	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <h3>$45</h3>
-                    <div class="buy_now_button"><a href="subpage.html">Buy Now</a></div>
-                    <div class="detail_button"><a href="subpage.html">Detail</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
-            
-            <div class="cleaner_with_height">&nbsp;</div>
-            
-            <a href="subpage.html"><img src="{% static 'images/templatemo_ads.jpg' %}" alt="ads" /></a>
-        </div> 
-        
-    </div> 
-    {% endblock content %} 
-    
-    <div id="templatemo_footer">
-        <a href="subpage.html">Home</a> | <a href="subpage.html">Search</a> | <a href="subpage.html">Books</a> | 
-        <a href="#">New Releases</a> | <a href="#">FAQs</a> | <a href="#">Contact Us</a><br />
-        Copyright © 2021 <a href="#"><strong>Your Company Name</strong></a> | <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by 
-        <a href="http://www.templatemo.com" target="_parent" title="free css templates">Free CSS Templates</a>	
-    </div> 
-
-</div> 
-
+    </div>
 </html>

@@ -106,7 +106,7 @@ class Book(models.Model):
     #                                     default=0,
     #                                     help_text="указывать сумму в рублях")
     page = models.PositiveIntegerField("Количество страниц", default=0)
-    url = models.SlugField(max_length=130, unique=True)
+    slug = models.SlugField(max_length=130, unique=True)
     draft = models.BooleanField("Черновик", default=False)
     offer_of_the_week = models.BooleanField(default=False,
                                             verbose_name="Предложение недели?")
@@ -118,7 +118,7 @@ class Book(models.Model):
         # return self.title
 
     def get_absolute_url(self):
-        return reverse("book_detail", kwargs={"slug": self.url})
+        return reverse("book_detail", kwargs={"slug": self.slug})
 
     @property
     def ct_model(self):
