@@ -3,6 +3,9 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace BookStore.Models
 {
+    /// <summary>
+    /// Модель Книга
+    /// </summary>
     public class Book: BaseEntity
     {
         /// <summary>
@@ -13,6 +16,7 @@ namespace BookStore.Models
         /// <summary>
         /// Автор книги
         /// </summary>
+        [Required]
         public Author Author { get; set; }
         /// <summary>
         /// Название книги
@@ -34,6 +38,7 @@ namespace BookStore.Models
         /// <summary>
         /// Жанр книги
         /// </summary>
+        [Required]
         public Genre Genre { get; set; }
         /// <summary>
         /// Год издания книги

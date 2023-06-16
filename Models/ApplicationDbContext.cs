@@ -22,7 +22,6 @@ namespace BookStore.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=BookStore;Trusted_Connection=True;");
-           // optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=BookStore;User Id=storeadmin;Password=admin;");
             optionsBuilder.ConfigureWarnings(warnings => warnings.Throw(CoreEventId.InvalidIncludePathError));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

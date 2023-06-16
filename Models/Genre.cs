@@ -2,6 +2,9 @@
 
 namespace BookStore.Models
 {
+    /// <summary>
+    /// Модель Жанр
+    /// </summary>
     public class Genre: BaseEntity
     {
         /// <summary>

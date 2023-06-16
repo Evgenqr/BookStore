@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230615141851_Init")]
+    [Migration("20230616110712_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -112,23 +112,6 @@ namespace BookStore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
-                });
-
-            modelBuilder.Entity("BookStore.Models.TestModel", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TestModels");
                 });
 
             modelBuilder.Entity("AuthorGenre", b =>

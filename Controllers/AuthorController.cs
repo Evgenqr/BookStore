@@ -13,13 +13,17 @@ namespace BookStore.Controllers
         {
             _context = context;
         }
-
+        /// <summary>
+        /// Вовод всех жанров
+        /// </summary>
         [HttpGet]
         public IActionResult GetAuthors()
         {
             return Ok(_context.Authors.ToList());
         }
-
+        /// <summary>
+        /// Вывод автора по Id
+        /// </summary>
         [HttpGet("{id}")]
         public IActionResult GetAuthors(int id)
         {
@@ -30,7 +34,9 @@ namespace BookStore.Controllers
             }
             return Ok(author);
         }
-
+        /// <summary>
+        /// Добавление автора 
+        /// </summary>
         [HttpPost]
         public IActionResult AddAuthor([FromBody] Author author)
         {
@@ -42,7 +48,9 @@ namespace BookStore.Controllers
             _context.SaveChanges();
             return Ok();
         }
-
+        /// <summary>
+        /// Обновление автора 
+        /// </summary>
         [HttpPut("{id}")]
         public IActionResult UpdateAuthor(int id, [FromBody] Author author)
         {
@@ -61,7 +69,9 @@ namespace BookStore.Controllers
             _context.SaveChanges();
             return Ok();
         }
-
+        /// <summary>
+        /// Удаление автора 
+        /// </summary>
         [HttpDelete("{id}")]
         public IActionResult DeleteAuthor(int id)
         {

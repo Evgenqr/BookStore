@@ -39,19 +39,6 @@ namespace BookStore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TestModels",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TestModels", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AuthorGenre",
                 columns: table => new
                 {
@@ -128,9 +115,6 @@ namespace BookStore.Migrations
 
             migrationBuilder.DropTable(
                 name: "Books");
-
-            migrationBuilder.DropTable(
-                name: "TestModels");
 
             migrationBuilder.DropTable(
                 name: "Authors");

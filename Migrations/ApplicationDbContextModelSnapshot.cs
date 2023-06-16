@@ -111,23 +111,6 @@ namespace BookStore.Migrations
                     b.ToTable("Genres");
                 });
 
-            modelBuilder.Entity("BookStore.Models.TestModel", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TestModels");
-                });
-
             modelBuilder.Entity("AuthorGenre", b =>
                 {
                     b.HasOne("BookStore.Models.Genre", null)

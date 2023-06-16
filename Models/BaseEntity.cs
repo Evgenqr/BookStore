@@ -3,7 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookStore.Models
 {
-    //Базовая сущность с идентификатором
+    /// <summary>
+    /// Базовая сущность с идентификатором
+    /// </summary>
     public class BaseEntity : IEntity, IHaveId
     {
         object IEntity.Id
@@ -17,7 +19,9 @@ namespace BookStore.Models
                 Id = (long)value;
             }
         }
-        //Идентификатор
+        /// <summary>
+        /// Идентификатор
+        /// </summary>
         [Display(Name = "Идентификатор")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public virtual long Id { get; set; }

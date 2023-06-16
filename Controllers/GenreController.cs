@@ -13,13 +13,17 @@ namespace BookStore.Controllers
         {
             _context = context;
         }
-
+        /// <summary>
+        /// Вывод всех жанров
+        /// </summary>
         [HttpGet]
         public IActionResult GetGenres()
         {
             return Ok(_context.Genres.ToList());
         }
-
+        /// <summary>
+        /// Вывод жанра по Id
+        /// </summary>
         [HttpGet("{id}")]
         public IActionResult GetGenres(int id)
         {
@@ -30,7 +34,9 @@ namespace BookStore.Controllers
             }
             return Ok(genre);
         }
-
+        /// <summary>
+        /// Добавление нового жанра 
+        /// </summary>
         [HttpPost]
         public IActionResult AddGenre(Genre genre)
         {
@@ -42,7 +48,9 @@ namespace BookStore.Controllers
             _context.SaveChanges();
             return Ok();
         }
-
+        /// <summary>
+        /// Обновление жанра 
+        /// </summary>
         [HttpPut("{id}")]
         public IActionResult UpdateGenre(int id, [FromBody] Genre genre)
         {
@@ -60,7 +68,9 @@ namespace BookStore.Controllers
             _context.SaveChanges();
             return Ok();
         }
-
+        /// <summary>
+        /// Удаление жанра 
+        /// </summary>
         [HttpDelete("{id}")]
         public IActionResult DeleteGenre(int id)
         {
